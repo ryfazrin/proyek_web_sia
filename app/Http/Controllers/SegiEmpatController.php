@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use app\Models\SegiEmpat;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 
 class SegiEmpatController extends Controller
 {

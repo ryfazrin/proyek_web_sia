@@ -1,3 +1,8 @@
+@extends('adminlte::page')
+
+@section('title', 'AdminLTE')
+
+@section('content')
 <h1>Hasil Perhitungan Segi Empat</h1>
 <table class="table table-striped table-bordered">
   <tr>
@@ -13,3 +18,4 @@
     <td>{{$segiEmpat->luas()}}</td>
   </tr>
 </table>
+@stop

@@ -1,4 +1,8 @@
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+@extends('adminlte::page')
+
+@section('title', 'AdminLTE')
+
+@section('content')
 <h1>Masukan Nilai Segi Empat</h1>
 <!-- tampilkan pesan jika terjadi kesalahan -->
 @if (count( $errors ) > 0)
@@ -22,3 +26,4 @@
 {!! Form::submit('Proses >>',
 array('class' => 'btn btn-primary')) !!}
 {!! Form::close() !!}
+@stop

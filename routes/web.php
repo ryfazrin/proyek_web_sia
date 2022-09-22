@@ -51,3 +51,6 @@ Route::get('/coba', function () {
     </body>
     </html>';
 });
+
+Route::get('segi-empat/inputSegiEmpat', 'SegiEmpatController@inputSegiEmpat')
+    ->name('segi-empat.inputSegiEmpat');

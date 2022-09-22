@@ -57,3 +57,15 @@ Route::get('segi-empat/inputSegiEmpat', 'SegiEmpatController@inputSegiEmpat')
 
 Route::post('segi-empat/hasil', 'SegiEmpatController@hasil')
     ->name('segi-empat.hasil');
+
+Route::get(
+    'segi-empat/inputBalok',
+    'SegiEmpatController@inputBalok'
+)
+    ->name('segi-empat.inputBalok');
+
+Route::post(
+    'segi-empat/hasilBalok',
+    'SegiEmpatController@hasilBalok'
+)
+    ->name('segi-empat.hasilBalok');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SegiEmpat;
+use App\models\Balok;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 
@@ -44,6 +45,45 @@ class SegiEmpatController extends Controller
             $segiEmpat->lebar = $request->lebar;
 
             return View::make('segi-empat.hasil', compact('segiEmpat'));
+        }
+    }
+
+    /************************************
+    //method memanggil form input Balok
+     ************************************/
+    public function inputBalok()
+    {
+        return View::make('segi-empat.inputBalok');
+    }
+
+    /***********************************
+     * method membaca hasil input Balok
+     * diteruskan menampilkan hasilnya
+     ***********************************/
+    public function hasilBalok(Request $request)
+    {
+        $balok = new Balok;
+        //aturan validasi
+        $rules = [
+            'panjang' => 'required|numeric',
+            'lebar' => 'required|numeric',
+            'tebal' => 'required|numeric'
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        //cek validasi
+        if ($validator->fails()) {
+            //jika salah kembalikan ke form untuk diperbaiki
+            return View::make(
+                'segi-empat.inputBalok',
+                compact('balok')
+            )->withErrors($validator);
+        } else {
+            //lanjutkan ke menampilkan hasil/
+            $balok->panjang = $request->panjang;
+            $balok->lebar = $request->lebar;
+            $balok->tebal = $request->tebal;
+
+            return View::make('segi-empat.hasilBalok', compact('balok'));
         }
     }
 }

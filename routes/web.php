@@ -21,12 +21,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::get('/web-ku', function () {
+    return "Apa kabar....";
+});
 
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
+// Auth::routes();
 
-Auth::routes();
+// Route::get('/home', function() {
+//     return view('home');
+// })->name('home')->middleware('auth');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -21,16 +21,33 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/web-ku', function () {
+Route::get('/webKu', function () {
     return "Apa kabar....";
 });
 
-// Auth::routes();
+$logic = function () {
+    return "Apa kabar Pazrin....";
+};
 
-// Route::get('/home', function() {
-//     return view('home');
-// })->name('home')->middleware('auth');
+Route::get('/webKu1', $logic);
 
-// Auth::routes();
+Route::get('/satu/page', function () {
+    return "yang ke satu!";
+});
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/buku/{judul}', function ($judul) {
+    return "Buku <b>{$judul}</b> adalah termasuk buku komputer.";
+});
+
+Route::get('/coba', function () {
+    return '<!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Coba laravel!</title>
+    </head>
+    <body>
+    <p>SELAMAT ANDA BELAJAR LARAVEL</p>
+    </body>
+    </html>';
+});

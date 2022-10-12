@@ -71,3 +71,5 @@ Route::post(
     ->name('segi-empat.hasilBalok');
 
 Route::resource('/mst-pangkat','MstPangkatController');
+
+Route::resource('/mst-jabatan','MstJabatanController');

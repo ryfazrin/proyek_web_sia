@@ -73,3 +73,5 @@ Route::post(
 Route::resource('/mst-pangkat','MstPangkatController');
 
 Route::resource('/mst-jabatan','MstJabatanController');
+
+Route::resource('/pegawai','PegawaiController');

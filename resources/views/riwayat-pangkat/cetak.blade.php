@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Kenaikan Pangkat Pegawai')
+@section('title', 'Riwayat Pangkat Pegawai')
 @section('content_header')
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -22,10 +22,9 @@ align-items: center;">
             </span>
             <div class="float-right">
               <div class="input-group custom-search-form">
-                <a href="{{ url('riwayat-pangkat/create')."/".$peg->id
-}}" class="btn btn-primary btn-sm">
+                <a href="{{ url('riwayat-pangkat/proses')."/".$peg->id}}" class="btn btn-primary btn-sm">
                   <span class="glyphicon glyphicon-plus"></span>
-                  Tambah</a>
+                  Ubah</a>
                 </span>
               </div>
             </div>
@@ -37,7 +36,7 @@ align-items: center;">
         </div>
         @endif
         <font size="4" face="Arial">
-          <table align="center" width="60%">
+          <table style="width:100%; background-color:#ffa;">
             <tr>
               <td>NIP </td>
               <td> : {{ $peg->id }} </td>
@@ -48,7 +47,7 @@ align-items: center;">
             </tr>
             <tr>
               <td>Pangkat/Golongan Terakhir </td>
-              <td> : {{ $peg->pGolTerahir() }}</td>
+              <td> : {{ $peg->pGolTerahir()}} </td>
             </tr>
             <tr>
               <td>Masa Kerja Pangkat/Golongan </td>
@@ -69,7 +68,6 @@ align-items: center;">
                   <th>GOL/RUANG</th>
                   <th>GAJI POKOK</th>
                   <th>STATUS</th>
-                  <th>AKSI</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,32 +77,11 @@ align-items: center;">
                   <td>{{ ++$i }}</td>
                   <td>{{ $peg->tanggal_tmt_pangkat }}</td>
                   <td>{{ $peg->no_sk_pangkat }}</td>
-                  <td>{{ $peg->getPangkat->nama_pangkat ==
-null ? "Belum punya" :
-$peg->getPangkat->nama_pangkat}}
+                  <td>{{ $peg->getPangkat->nama_pangkat }}</td>
+                  <td>{{ $peg->getPangkat->pangkat_gol }}</td>
+                  <td align="right">{{ number_format($peg->gaji_pokok)}}</td>
                   </td>
-                  <td>{{ $peg->getPangkat->pangkat_gol
-}}</td>
-                  <td>{{ $peg->gaji_pokok}}</td>
-                  <td>{{ $peg->status==0
-?"Tidak":"Berlaku"}}</td>
-                  </td>
-                  <td>
-                    <form action="{{ route('riwayat-pangkat.destroy',
-$peg->id) }}" method="POST">
-                      <a class="btn btn-sm btn-primary" href="{{ route('riwayat-pangkat.show',$peg->id) }}">
-                        <i class="fa fa-fw fa-eye"></i>
-                        Lihat</a>
-                      <a class="btn btn-sm btn-success" href="{{ route('riwayat-pangkat.edit',$peg->id) }}">
-                        <i class="fa fa-fw fa-edit"></i>
-                        Ubah</a>
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-danger btn-sm">
-                        <i class="fa fa-fw fa-trash"></i> Hapus
-                      </button>
-                    </form>
-                  </td>
+                  <td>{{ $peg->status==1 ? "Berlaku" : "Tidak" }}</td>
                 </tr>
                 @endforeach
               </tbody>

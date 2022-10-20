@@ -70,12 +70,29 @@ Route::post(
 )
     ->name('segi-empat.hasilBalok');
 
+
+/***************
+ * ROUTES UTAMA
+ ***************/
+
+/**
+ * mst-pangkat
+ */
 Route::resource('/mst-pangkat', 'MstPangkatController');
 
+/**
+ * mst-jabatan
+ */
 Route::resource('/mst-jabatan', 'MstJabatanController');
 
+/**
+ * pegawai
+ */
 Route::resource('/pegawai', 'PegawaiController');
 
+/**
+ * riwayat-pangkat
+ */
 Route::get('/riwayat-pangkat', 'RiwayatPangkatController@index');
 Route::get('/riwayat-pangkat/proses/{id}', 'RiwayatPangkatController@proses')
     ->name('riwayat-pangkat.index1');
